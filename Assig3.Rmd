@@ -10,6 +10,11 @@ install.packages('C50')
 
 library(C50)
 
+#To examine datasets in package C50
 data()
+```
+After examining data function, it has been found out that there are two datasets in 'Customer Churn Data' (C50 package), which are churnTest and churnTrain. 
+```{r}
+attach(churnTrain)
 ```
 
