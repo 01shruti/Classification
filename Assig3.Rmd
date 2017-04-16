@@ -6,10 +6,19 @@ output: html_notebook
 Q4. Install	R	package	“C50”.	Import	customer	churn	dataset	(churn)	using	data() function.		
 Examine	the	churnTrain dataset. Using	R	run	a	decision-tree	classification	algorithm	of	your choice	constructing	a	full	unpruned	tree	and	a	pruned	tree.	Compare	classification	results	of the	pruned	and	unpruned	trees generated.	
 ```{r}
-install.packages('C50')
+#install.packages('C50')
 
 library(C50)
 
+#To examine datasets in package C50
 data()
+```
+After examining data function, it has been found out that there are two datasets in 'Customer Churn Data' (C50 package), which are churnTest and churnTrain. To import datasets in C50 package, use command "data(churn)".
+```{r}
+data(churn)
+
+print("---------------------------Summary Table : churnTrain---------------------")
+#To understand dataset churnTrain
+summary(churnTrain)
 ```
 
