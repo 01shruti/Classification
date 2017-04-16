@@ -1,10 +1,22 @@
 ---
 title: "MIS40970 Data Mining - Assignment 3 Classification"
-output: html_notebook
+output:
+  pdf_document: default
+  html_notebook: default
 ---
+```{r}
+#rm() is used to remove other objects from the environment
+rm(list=ls())
 
-Q4. Install	R	package	“C50”.	Import	customer	churn	dataset	(churn)	using	data() function.		
-Examine	the	churnTrain dataset. Using	R	run	a	decision-tree	classification	algorithm	of	your choice	constructing	a	full	unpruned	tree	and	a	pruned	tree.	Compare	classification	results	of the	pruned	and	unpruned	trees generated.	
+#To check the working directory
+getwd()
+#A specific working drectory needs to be set for the loading of dataset
+setwd("G:/R_programs_git/R_Progams/Classification/Classification")
+
+```
+
+## **Q4. Install	R	package	“C50”.	Import	customer	churn	dataset	(churn)	using	data() function.		
+Examine	the	churnTrain dataset. Using	R	run	a	decision-tree	classification	algorithm	of	your choice	constructing	a	full	unpruned	tree	and	a	pruned	tree.	Compare	classification	results	of the	pruned	and	unpruned	trees generated.**	
 ```{r}
 #install.packages('C50')
 

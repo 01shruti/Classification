@@ -172,8 +172,26 @@ $(document).ready(function () {
 
 
 <!-- rnb-text-begin -->
-<p>Q4. Install R package “C50”. Import customer churn dataset (churn) using data() function.<br />
-Examine the churnTrain dataset. Using R run a decision-tree classification algorithm of your choice constructing a full unpruned tree and a pruned tree. Compare classification results of the pruned and unpruned trees generated.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI3JtKCkgaXMgdXNlZCB0byByZW1vdmUgb3RoZXIgb2JqZWN0cyBmcm9tIHRoZSBlbnZpcm9ubWVudFxucm0obGlzdD1scygpKVxuI1RvIGNoZWNrIHRoZSB3b3JraW5nIGRpcmVjdG9yeVxuZ2V0d2QoKVxuYGBgIn0= -->
+<pre class="r"><code>#rm() is used to remove other objects from the environment
+rm(list=ls())
+#To check the working directory
+getwd()</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwiRzovUl9wcm9ncmFtc19naXQvUl9Qcm9nYW1zL0NsYXNzaWZpY2F0aW9uL0NsYXNzaWZpY2F0aW9uXCJcbiJ9 -->
+<pre><code>[1] &quot;G:/R_programs_git/R_Progams/Classification/Classification&quot;</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI0Egc3BlY2lmaWMgd29ya2luZyBkcmVjdG9yeSBuZWVkcyB0byBiZSBzZXQgZm9yIHRoZSBsb2FkaW5nIG9mIGRhdGFzZXRcbnNldHdkKFwiRzovUl9wcm9ncmFtc19naXQvUl9Qcm9nYW1zL0NsYXNzaWZpY2F0aW9uL0NsYXNzaWZpY2F0aW9uXCIpXG5gYGAifQ== -->
+<pre class="r"><code>#A specific working drectory needs to be set for the loading of dataset
+setwd(&quot;G:/R_programs_git/R_Progams/Classification/Classification&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<div id="q4.-install-r-package-c50.-import-customer-churn-dataset-churn-using-data-function.-examine-the-churntrain-dataset.-using-r-run-a-decision-tree-classification-algorithm-of-your-choice-constructing-a-full-unpruned-tree-and-a-pruned-tree.-compare-classification-results-of-the-pruned-and-unpruned-trees-generated." class="section level2">
+<h2><strong>Q4. Install R package “C50”. Import customer churn dataset (churn) using data() function.<br />
+Examine the churnTrain dataset. Using R run a decision-tree classification algorithm of your choice constructing a full unpruned tree and a pruned tree. Compare classification results of the pruned and unpruned trees generated.</strong></h2>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI2luc3RhbGwucGFja2FnZXMoJ0M1MCcpXG5saWJyYXJ5KEM1MClcbiNUbyBleGFtaW5lIGRhdGFzZXRzIGluIHBhY2thZ2UgQzUwXG5kYXRhKClcbmBgYCJ9 -->
@@ -243,8 +261,9 @@ summary(churnTrain)</code></pre>
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
+</div>
 
-<div id="rmd-source-code">LS0tDQp0aXRsZTogIk1JUzQwOTcwIERhdGEgTWluaW5nIC0gQXNzaWdubWVudCAzIENsYXNzaWZpY2F0aW9uIg0Kb3V0cHV0OiBodG1sX25vdGVib29rDQotLS0NCg0KUTQuIEluc3RhbGwJUglwYWNrYWdlCeKAnEM1MOKAnS4JSW1wb3J0CWN1c3RvbWVyCWNodXJuCWRhdGFzZXQJKGNodXJuKQl1c2luZwlkYXRhKCkgZnVuY3Rpb24uCQkNCkV4YW1pbmUJdGhlCWNodXJuVHJhaW4gZGF0YXNldC4gVXNpbmcJUglydW4JYQlkZWNpc2lvbi10cmVlCWNsYXNzaWZpY2F0aW9uCWFsZ29yaXRobQlvZgl5b3VyIGNob2ljZQljb25zdHJ1Y3RpbmcJYQlmdWxsCXVucHJ1bmVkCXRyZWUJYW5kCWEJcHJ1bmVkCXRyZWUuCUNvbXBhcmUJY2xhc3NpZmljYXRpb24JcmVzdWx0cwlvZiB0aGUJcHJ1bmVkCWFuZAl1bnBydW5lZAl0cmVlcyBnZW5lcmF0ZWQuCQ0KYGBge3J9DQojaW5zdGFsbC5wYWNrYWdlcygnQzUwJykNCg0KbGlicmFyeShDNTApDQoNCiNUbyBleGFtaW5lIGRhdGFzZXRzIGluIHBhY2thZ2UgQzUwDQpkYXRhKCkNCmBgYA0KQWZ0ZXIgZXhhbWluaW5nIGRhdGEgZnVuY3Rpb24sIGl0IGhhcyBiZWVuIGZvdW5kIG91dCB0aGF0IHRoZXJlIGFyZSB0d28gZGF0YXNldHMgaW4gJ0N1c3RvbWVyIENodXJuIERhdGEnIChDNTAgcGFja2FnZSksIHdoaWNoIGFyZSBjaHVyblRlc3QgYW5kIGNodXJuVHJhaW4uIFRvIGltcG9ydCBkYXRhc2V0cyBpbiBDNTAgcGFja2FnZSwgdXNlIGNvbW1hbmQgImRhdGEoY2h1cm4pIi4NCmBgYHtyfQ0KZGF0YShjaHVybikNCg0KcHJpbnQoIi0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLVN1bW1hcnkgVGFibGUgOiBjaHVyblRyYWluLS0tLS0tLS0tLS0tLS0tLS0tLS0tIikNCiNUbyB1bmRlcnN0YW5kIGRhdGFzZXQgY2h1cm5UcmFpbg0Kc3VtbWFyeShjaHVyblRyYWluKQ0KYGBgDQoNCg==</div>
+<div id="rmd-source-code">LS0tDQp0aXRsZTogIk1JUzQwOTcwIERhdGEgTWluaW5nIC0gQXNzaWdubWVudCAzIENsYXNzaWZpY2F0aW9uIg0Kb3V0cHV0Og0KICBwZGZfZG9jdW1lbnQ6IGRlZmF1bHQNCiAgaHRtbF9ub3RlYm9vazogZGVmYXVsdA0KLS0tDQpgYGB7cn0NCiNybSgpIGlzIHVzZWQgdG8gcmVtb3ZlIG90aGVyIG9iamVjdHMgZnJvbSB0aGUgZW52aXJvbm1lbnQNCnJtKGxpc3Q9bHMoKSkNCg0KI1RvIGNoZWNrIHRoZSB3b3JraW5nIGRpcmVjdG9yeQ0KZ2V0d2QoKQ0KI0Egc3BlY2lmaWMgd29ya2luZyBkcmVjdG9yeSBuZWVkcyB0byBiZSBzZXQgZm9yIHRoZSBsb2FkaW5nIG9mIGRhdGFzZXQNCnNldHdkKCJHOi9SX3Byb2dyYW1zX2dpdC9SX1Byb2dhbXMvQ2xhc3NpZmljYXRpb24vQ2xhc3NpZmljYXRpb24iKQ0KDQpgYGANCg0KIyMgKipRNC4gSW5zdGFsbAlSCXBhY2thZ2UJ4oCcQzUw4oCdLglJbXBvcnQJY3VzdG9tZXIJY2h1cm4JZGF0YXNldAkoY2h1cm4pCXVzaW5nCWRhdGEoKSBmdW5jdGlvbi4JCQ0KRXhhbWluZQl0aGUJY2h1cm5UcmFpbiBkYXRhc2V0LiBVc2luZwlSCXJ1bglhCWRlY2lzaW9uLXRyZWUJY2xhc3NpZmljYXRpb24JYWxnb3JpdGhtCW9mCXlvdXIgY2hvaWNlCWNvbnN0cnVjdGluZwlhCWZ1bGwJdW5wcnVuZWQJdHJlZQlhbmQJYQlwcnVuZWQJdHJlZS4JQ29tcGFyZQljbGFzc2lmaWNhdGlvbglyZXN1bHRzCW9mIHRoZQlwcnVuZWQJYW5kCXVucHJ1bmVkCXRyZWVzIGdlbmVyYXRlZC4qKgkNCmBgYHtyfQ0KI2luc3RhbGwucGFja2FnZXMoJ0M1MCcpDQoNCmxpYnJhcnkoQzUwKQ0KDQojVG8gZXhhbWluZSBkYXRhc2V0cyBpbiBwYWNrYWdlIEM1MA0KZGF0YSgpDQpgYGANCkFmdGVyIGV4YW1pbmluZyBkYXRhIGZ1bmN0aW9uLCBpdCBoYXMgYmVlbiBmb3VuZCBvdXQgdGhhdCB0aGVyZSBhcmUgdHdvIGRhdGFzZXRzIGluICdDdXN0b21lciBDaHVybiBEYXRhJyAoQzUwIHBhY2thZ2UpLCB3aGljaCBhcmUgY2h1cm5UZXN0IGFuZCBjaHVyblRyYWluLiBUbyBpbXBvcnQgZGF0YXNldHMgaW4gQzUwIHBhY2thZ2UsIHVzZSBjb21tYW5kICJkYXRhKGNodXJuKSIuDQpgYGB7cn0NCmRhdGEoY2h1cm4pDQoNCnByaW50KCItLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS1TdW1tYXJ5IFRhYmxlIDogY2h1cm5UcmFpbi0tLS0tLS0tLS0tLS0tLS0tLS0tLSIpDQojVG8gdW5kZXJzdGFuZCBkYXRhc2V0IGNodXJuVHJhaW4NCnN1bW1hcnkoY2h1cm5UcmFpbikNCmBgYA0KDQo=</div>
 
 
 
