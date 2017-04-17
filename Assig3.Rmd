@@ -15,8 +15,7 @@ setwd("G:/R_programs_git/R_Progams/Classification/Classification")
 
 ```
 
-## **Q4. Install	R	package	“C50”.	Import	customer	churn	dataset	(churn)	using	data() function.		
-Examine	the	churnTrain dataset. Using	R	run	a	decision-tree	classification	algorithm	of	your choice	constructing	a	full	unpruned	tree	and	a	pruned	tree.	Compare	classification	results	of the	pruned	and	unpruned	trees generated.**	
+## **Q4. Install	R	package	"C50".	Import	customer	churn	dataset	(churn)	using	data() function. Examine	the	churnTrain dataset. Using	R	run	a	decision-tree	classification	algorithm	of	your choice	constructing	a	full	unpruned	tree	and	a	pruned	tree.	Compare	classification	results	of the	pruned	and	unpruned	trees generated.**	
 ```{r}
 install.packages('C50')
 
@@ -34,11 +33,11 @@ print("---------------------------Summary Table : churnTrain--------------------
 summary(churnTrain)
 ```
 ```{r}
-#Installing package 'tree' for Decision Tree
+#Installing package 'rpart' for Decision Tree
 
-install.packages("tree")
+install.packages("rpart")
 
-library(tree)
+library(rpart)
 
 ```
 

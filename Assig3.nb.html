@@ -174,50 +174,28 @@ $(document).ready(function () {
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI3JtKCkgaXMgdXNlZCB0byByZW1vdmUgb3RoZXIgb2JqZWN0cyBmcm9tIHRoZSBlbnZpcm9ubWVudFxucm0obGlzdD1scygpKVxuI1RvIGNoZWNrIHRoZSB3b3JraW5nIGRpcmVjdG9yeVxuZ2V0d2QoKVxuYGBgIn0= -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI3JtKCkgaXMgdXNlZCB0byByZW1vdmUgb3RoZXIgb2JqZWN0cyBmcm9tIHRoZSBlbnZpcm9ubWVudFxucm0obGlzdD1scygpKVxuXG4jVG8gY2hlY2sgdGhlIHdvcmtpbmcgZGlyZWN0b3J5XG5nZXR3ZCgpXG4jQSBzcGVjaWZpYyB3b3JraW5nIGRyZWN0b3J5IG5lZWRzIHRvIGJlIHNldCBmb3IgdGhlIGxvYWRpbmcgb2YgZGF0YXNldFxuc2V0d2QoXCJHOi9SX3Byb2dyYW1zX2dpdC9SX1Byb2dhbXMvQ2xhc3NpZmljYXRpb24vQ2xhc3NpZmljYXRpb25cIilcblxuYGBgIn0= -->
 <pre class="r"><code>#rm() is used to remove other objects from the environment
 rm(list=ls())
+
 #To check the working directory
-getwd()</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwiRzovUl9wcm9ncmFtc19naXQvUl9Qcm9nYW1zL0NsYXNzaWZpY2F0aW9uL0NsYXNzaWZpY2F0aW9uXCJcbiJ9 -->
-<pre><code>[1] &quot;G:/R_programs_git/R_Progams/Classification/Classification&quot;</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI0Egc3BlY2lmaWMgd29ya2luZyBkcmVjdG9yeSBuZWVkcyB0byBiZSBzZXQgZm9yIHRoZSBsb2FkaW5nIG9mIGRhdGFzZXRcbnNldHdkKFwiRzovUl9wcm9ncmFtc19naXQvUl9Qcm9nYW1zL0NsYXNzaWZpY2F0aW9uL0NsYXNzaWZpY2F0aW9uXCIpXG5gYGAifQ== -->
-<pre class="r"><code>#A specific working drectory needs to be set for the loading of dataset
-setwd(&quot;G:/R_programs_git/R_Progams/Classification/Classification&quot;)</code></pre>
+getwd()
+#A specific working drectory needs to be set for the loading of dataset
+setwd(&quot;G:/R_programs_git/R_Progams/Classification/Classification&quot;)
+</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <div id="q4.-install-r-package-c50.-import-customer-churn-dataset-churn-using-data-function.-examine-the-churntrain-dataset.-using-r-run-a-decision-tree-classification-algorithm-of-your-choice-constructing-a-full-unpruned-tree-and-a-pruned-tree.-compare-classification-results-of-the-pruned-and-unpruned-trees-generated." class="section level2">
-<h2><strong>Q4. Install R package “C50”. Import customer churn dataset (churn) using data() function.<br />
-Examine the churnTrain dataset. Using R run a decision-tree classification algorithm of your choice constructing a full unpruned tree and a pruned tree. Compare classification results of the pruned and unpruned trees generated.</strong></h2>
+<h2><strong>Q4. Install R package “C50”. Import customer churn dataset (churn) using data() function. Examine the churnTrain dataset. Using R run a decision-tree classification algorithm of your choice constructing a full unpruned tree and a pruned tree. Compare classification results of the pruned and unpruned trees generated.</strong></h2>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuaW5zdGFsbC5wYWNrYWdlcygnQzUwJylcbmBgYCJ9 -->
-<pre class="r"><code>install.packages('C50')</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiSW5zdGFsbGluZyBwYWNrYWdlIGludG8g46S847ixRTovVXNlcnMvU2hydXRpL0RvY3VtZW50cy9SL3dpbi1saWJyYXJ5LzMuM+OkvOO4slxuKGFzIOOkvOO4sWxpYuOkvOO4siBpcyB1bnNwZWNpZmllZClcbnRyeWluZyBVUkwgJ2h0dHBzOi8vY3Jhbi5yc3R1ZGlvLmNvbS9iaW4vd2luZG93cy9jb250cmliLzMuMy9DNTBfMC4xLjAtMjQuemlwJ1xuQ29udGVudCB0eXBlICdhcHBsaWNhdGlvbi96aXAnIGxlbmd0aCA0NzgzNzcgYnl0ZXMgKDQ2NyBLQilcbmRvd25sb2FkZWQgNDY3IEtCXG4ifQ== -->
-<pre><code>Installing package into 㤼㸱E:/Users/Shruti/Documents/R/win-library/3.3㤼㸲
-(as 㤼㸱lib㤼㸲 is unspecified)
-trying URL 'https://cran.rstudio.com/bin/windows/contrib/3.3/C50_0.1.0-24.zip'
-Content type 'application/zip' length 478377 bytes (467 KB)
-downloaded 467 KB</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-output-begin eyJkYXRhIjoicGFja2FnZSDigJhDNTDigJkgc3VjY2Vzc2Z1bGx5IHVucGFja2VkIGFuZCBNRDUgc3VtcyBjaGVja2VkXG5cblRoZSBkb3dubG9hZGVkIGJpbmFyeSBwYWNrYWdlcyBhcmUgaW5cblx0RTpcXFVzZXJzXFxTaHJ1dGlcXEFwcERhdGFcXExvY2FsXFxUZW1wXFxSdG1wZ3hQWnlhXFxkb3dubG9hZGVkX3BhY2thZ2VzXG4ifQ== -->
-<pre><code>package ‘C50’ successfully unpacked and MD5 sums checked
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuaW5zdGFsbC5wYWNrYWdlcygnQzUwJylcblxubGlicmFyeShDNTApXG5cbiNUbyBleGFtaW5lIGRhdGFzZXRzIGluIHBhY2thZ2UgQzUwXG5kYXRhKClcbmBgYCJ9 -->
+<pre class="r"><code>install.packages('C50')
 
-The downloaded binary packages are in
-    E:\Users\Shruti\AppData\Local\Temp\RtmpgxPZya\downloaded_packages</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShDNTApXG5gYGAifQ== -->
-<pre class="r"><code>library(C50)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoicGFja2FnZSDjpLzjuLFDNTDjpLzjuLIgd2FzIGJ1aWx0IHVuZGVyIFIgdmVyc2lvbiAzLjMuM1xuIn0= -->
-<pre><code>package 㤼㸱C50㤼㸲 was built under R version 3.3.3</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI1RvIGV4YW1pbmUgZGF0YXNldHMgaW4gcGFja2FnZSBDNTBcbmRhdGEoKVxuYGBgIn0= -->
-<pre class="r"><code>#To examine datasets in package C50
+library(C50)
+
+#To examine datasets in package C50
 data()</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
@@ -225,90 +203,44 @@ data()</code></pre>
 <p>After examining data function, it has been found out that there are two datasets in ‘Customer Churn Data’ (C50 package), which are churnTest and churnTrain. To import datasets in C50 package, use command “data(churn)”.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZGF0YShjaHVybilcbnByaW50KFwiLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tU3VtbWFyeSBUYWJsZSA6IGNodXJuVHJhaW4tLS0tLS0tLS0tLS0tLS0tLS0tLS1cIilcbmBgYCJ9 -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZGF0YShjaHVybilcblxucHJpbnQoXCItLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS1TdW1tYXJ5IFRhYmxlIDogY2h1cm5UcmFpbi0tLS0tLS0tLS0tLS0tLS0tLS0tLVwiKVxuI1RvIHVuZGVyc3RhbmQgZGF0YXNldCBjaHVyblRyYWluXG5zdW1tYXJ5KGNodXJuVHJhaW4pXG5gYGAifQ== -->
 <pre class="r"><code>data(churn)
-print(&quot;---------------------------Summary Table : churnTrain---------------------&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwiLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tU3VtbWFyeSBUYWJsZSA6IGNodXJuVHJhaW4tLS0tLS0tLS0tLS0tLS0tLS0tLS1cIlxuIn0= -->
-<pre><code>[1] &quot;---------------------------Summary Table : churnTrain---------------------&quot;</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI1RvIHVuZGVyc3RhbmQgZGF0YXNldCBjaHVyblRyYWluXG5zdW1tYXJ5KGNodXJuVHJhaW4pXG5gYGAifQ== -->
-<pre class="r"><code>#To understand dataset churnTrain
+
+print(&quot;---------------------------Summary Table : churnTrain---------------------&quot;)
+#To understand dataset churnTrain
 summary(churnTrain)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiICAgICBzdGF0ZSAgICAgIGFjY291bnRfbGVuZ3RoICAgICAgICAgIGFyZWFfY29kZSAgICBpbnRlcm5hdGlvbmFsX3BsYW5cbiBXViAgICAgOiAxMDYgICBNaW4uICAgOiAgMS4wICAgYXJlYV9jb2RlXzQwODogODM4ICAgbm8gOjMwMTAgICAgICAgICAgXG4gTU4gICAgIDogIDg0ICAgMXN0IFF1LjogNzQuMCAgIGFyZWFfY29kZV80MTU6MTY1NSAgIHllczogMzIzICAgICAgICAgIFxuIE5ZICAgICA6ICA4MyAgIE1lZGlhbiA6MTAxLjAgICBhcmVhX2NvZGVfNTEwOiA4NDAgICAgICAgICAgICAgICAgICAgICBcbiBBTCAgICAgOiAgODAgICBNZWFuICAgOjEwMS4xICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXG4gT0ggICAgIDogIDc4ICAgM3JkIFF1LjoxMjcuMCAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFxuIE9SICAgICA6ICA3OCAgIE1heC4gICA6MjQzLjAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbiAoT3RoZXIpOjI4MjQgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXG4gdm9pY2VfbWFpbF9wbGFuIG51bWJlcl92bWFpbF9tZXNzYWdlcyB0b3RhbF9kYXlfbWludXRlcyB0b3RhbF9kYXlfY2FsbHNcbiBubyA6MjQxMSAgICAgICAgTWluLiAgIDogMC4wMDAgICAgICAgIE1pbi4gICA6ICAwLjAgICAgIE1pbi4gICA6ICAwLjAgIFxuIHllczogOTIyICAgICAgICAxc3QgUXUuOiAwLjAwMCAgICAgICAgMXN0IFF1LjoxNDMuNyAgICAgMXN0IFF1LjogODcuMCAgXG4gICAgICAgICAgICAgICAgIE1lZGlhbiA6IDAuMDAwICAgICAgICBNZWRpYW4gOjE3OS40ICAgICBNZWRpYW4gOjEwMS4wICBcbiAgICAgICAgICAgICAgICAgTWVhbiAgIDogOC4wOTkgICAgICAgIE1lYW4gICA6MTc5LjggICAgIE1lYW4gICA6MTAwLjQgIFxuICAgICAgICAgICAgICAgICAzcmQgUXUuOjIwLjAwMCAgICAgICAgM3JkIFF1LjoyMTYuNCAgICAgM3JkIFF1LjoxMTQuMCAgXG4gICAgICAgICAgICAgICAgIE1heC4gICA6NTEuMDAwICAgICAgICBNYXguICAgOjM1MC44ICAgICBNYXguICAgOjE2NS4wICBcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFxuIHRvdGFsX2RheV9jaGFyZ2UgdG90YWxfZXZlX21pbnV0ZXMgdG90YWxfZXZlX2NhbGxzIHRvdGFsX2V2ZV9jaGFyZ2VcbiBNaW4uICAgOiAwLjAwICAgIE1pbi4gICA6ICAwLjAgICAgIE1pbi4gICA6ICAwLjAgICBNaW4uICAgOiAwLjAwICAgXG4gMXN0IFF1LjoyNC40MyAgICAxc3QgUXUuOjE2Ni42ICAgICAxc3QgUXUuOiA4Ny4wICAgMXN0IFF1LjoxNC4xNiAgIFxuIE1lZGlhbiA6MzAuNTAgICAgTWVkaWFuIDoyMDEuNCAgICAgTWVkaWFuIDoxMDAuMCAgIE1lZGlhbiA6MTcuMTIgICBcbiBNZWFuICAgOjMwLjU2ICAgIE1lYW4gICA6MjAxLjAgICAgIE1lYW4gICA6MTAwLjEgICBNZWFuICAgOjE3LjA4ICAgXG4gM3JkIFF1LjozNi43OSAgICAzcmQgUXUuOjIzNS4zICAgICAzcmQgUXUuOjExNC4wICAgM3JkIFF1LjoyMC4wMCAgIFxuIE1heC4gICA6NTkuNjQgICAgTWF4LiAgIDozNjMuNyAgICAgTWF4LiAgIDoxNzAuMCAgIE1heC4gICA6MzAuOTEgICBcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXG4gdG90YWxfbmlnaHRfbWludXRlcyB0b3RhbF9uaWdodF9jYWxscyB0b3RhbF9uaWdodF9jaGFyZ2UgdG90YWxfaW50bF9taW51dGVzXG4gTWluLiAgIDogMjMuMiAgICAgICBNaW4uICAgOiAzMy4wICAgICBNaW4uICAgOiAxLjA0MCAgICAgTWluLiAgIDogMC4wMCAgICAgXG4gMXN0IFF1LjoxNjcuMCAgICAgICAxc3QgUXUuOiA4Ny4wICAgICAxc3QgUXUuOiA3LjUyMCAgICAgMXN0IFF1LjogOC41MCAgICAgXG4gTWVkaWFuIDoyMDEuMiAgICAgICBNZWRpYW4gOjEwMC4wICAgICBNZWRpYW4gOiA5LjA1MCAgICAgTWVkaWFuIDoxMC4zMCAgICAgXG4gTWVhbiAgIDoyMDAuOSAgICAgICBNZWFuICAgOjEwMC4xICAgICBNZWFuICAgOiA5LjAzOSAgICAgTWVhbiAgIDoxMC4yNCAgICAgXG4gM3JkIFF1LjoyMzUuMyAgICAgICAzcmQgUXUuOjExMy4wICAgICAzcmQgUXUuOjEwLjU5MCAgICAgM3JkIFF1LjoxMi4xMCAgICAgXG4gTWF4LiAgIDozOTUuMCAgICAgICBNYXguICAgOjE3NS4wICAgICBNYXguICAgOjE3Ljc3MCAgICAgTWF4LiAgIDoyMC4wMCAgICAgXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXG4gdG90YWxfaW50bF9jYWxscyB0b3RhbF9pbnRsX2NoYXJnZSBudW1iZXJfY3VzdG9tZXJfc2VydmljZV9jYWxscyBjaHVybiAgICAgXG4gTWluLiAgIDogMC4wMDAgICBNaW4uICAgOjAuMDAwICAgICBNaW4uICAgOjAuMDAwICAgICAgICAgICAgICAgICB5ZXM6IDQ4MyAgXG4gMXN0IFF1LjogMy4wMDAgICAxc3QgUXUuOjIuMzAwICAgICAxc3QgUXUuOjEuMDAwICAgICAgICAgICAgICAgICBubyA6Mjg1MCAgXG4gTWVkaWFuIDogNC4wMDAgICBNZWRpYW4gOjIuNzgwICAgICBNZWRpYW4gOjEuMDAwICAgICAgICAgICAgICAgICAgICAgICAgICAgXG4gTWVhbiAgIDogNC40NzkgICBNZWFuICAgOjIuNzY1ICAgICBNZWFuICAgOjEuNTYzICAgICAgICAgICAgICAgICAgICAgICAgICAgXG4gM3JkIFF1LjogNi4wMDAgICAzcmQgUXUuOjMuMjcwICAgICAzcmQgUXUuOjIuMDAwICAgICAgICAgICAgICAgICAgICAgICAgICAgXG4gTWF4LiAgIDoyMC4wMDAgICBNYXguICAgOjUuNDAwICAgICBNYXguICAgOjkuMDAwICAgICAgICAgICAgICAgICAgICAgICAgICAgXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXG4ifQ== -->
-<pre><code>     state      account_length          area_code    international_plan
- WV     : 106   Min.   :  1.0   area_code_408: 838   no :3010          
- MN     :  84   1st Qu.: 74.0   area_code_415:1655   yes: 323          
- NY     :  83   Median :101.0   area_code_510: 840                     
- AL     :  80   Mean   :101.1                                          
- OH     :  78   3rd Qu.:127.0                                          
- OR     :  78   Max.   :243.0                                          
- (Other):2824                                                          
- voice_mail_plan number_vmail_messages total_day_minutes total_day_calls
- no :2411        Min.   : 0.000        Min.   :  0.0     Min.   :  0.0  
- yes: 922        1st Qu.: 0.000        1st Qu.:143.7     1st Qu.: 87.0  
-                 Median : 0.000        Median :179.4     Median :101.0  
-                 Mean   : 8.099        Mean   :179.8     Mean   :100.4  
-                 3rd Qu.:20.000        3rd Qu.:216.4     3rd Qu.:114.0  
-                 Max.   :51.000        Max.   :350.8     Max.   :165.0  
-                                                                        
- total_day_charge total_eve_minutes total_eve_calls total_eve_charge
- Min.   : 0.00    Min.   :  0.0     Min.   :  0.0   Min.   : 0.00   
- 1st Qu.:24.43    1st Qu.:166.6     1st Qu.: 87.0   1st Qu.:14.16   
- Median :30.50    Median :201.4     Median :100.0   Median :17.12   
- Mean   :30.56    Mean   :201.0     Mean   :100.1   Mean   :17.08   
- 3rd Qu.:36.79    3rd Qu.:235.3     3rd Qu.:114.0   3rd Qu.:20.00   
- Max.   :59.64    Max.   :363.7     Max.   :170.0   Max.   :30.91   
-                                                                    
- total_night_minutes total_night_calls total_night_charge total_intl_minutes
- Min.   : 23.2       Min.   : 33.0     Min.   : 1.040     Min.   : 0.00     
- 1st Qu.:167.0       1st Qu.: 87.0     1st Qu.: 7.520     1st Qu.: 8.50     
- Median :201.2       Median :100.0     Median : 9.050     Median :10.30     
- Mean   :200.9       Mean   :100.1     Mean   : 9.039     Mean   :10.24     
- 3rd Qu.:235.3       3rd Qu.:113.0     3rd Qu.:10.590     3rd Qu.:12.10     
- Max.   :395.0       Max.   :175.0     Max.   :17.770     Max.   :20.00     
-                                                                            
- total_intl_calls total_intl_charge number_customer_service_calls churn     
- Min.   : 0.000   Min.   :0.000     Min.   :0.000                 yes: 483  
- 1st Qu.: 3.000   1st Qu.:2.300     1st Qu.:1.000                 no :2850  
- Median : 4.000   Median :2.780     Median :1.000                           
- Mean   : 4.479   Mean   :2.765     Mean   :1.563                           
- 3rd Qu.: 6.000   3rd Qu.:3.270     3rd Qu.:2.000                           
- Max.   :20.000   Max.   :5.400     Max.   :9.000                           
-                                                                            </code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI0luc3RhbGxpbmcgcGFja2FnZSAndHJlZScgZm9yIERlY2lzaW9uIFRyZWVcbmluc3RhbGwucGFja2FnZXMoXCJ0cmVlXCIpXG5gYGAifQ== -->
-<pre class="r"><code>#Installing package 'tree' for Decision Tree
-install.packages(&quot;tree&quot;)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI0luc3RhbGxpbmcgcGFja2FnZSAncnBhcnQnIGZvciBEZWNpc2lvbiBUcmVlXG5pbnN0YWxsLnBhY2thZ2VzKFwicnBhcnRcIilcbmBgYCJ9 -->
+<pre class="r"><code>#Installing package 'rpart' for Decision Tree
+install.packages(&quot;rpart&quot;)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiSW5zdGFsbGluZyBwYWNrYWdlIGludG8g46S847ixRTovVXNlcnMvU2hydXRpL0RvY3VtZW50cy9SL3dpbi1saWJyYXJ5LzMuM+OkvOO4slxuKGFzIOOkvOO4sWxpYuOkvOO4siBpcyB1bnNwZWNpZmllZClcbnRyeWluZyBVUkwgJ2h0dHBzOi8vY3Jhbi5yc3R1ZGlvLmNvbS9iaW4vd2luZG93cy9jb250cmliLzMuMy90cmVlXzEuMC0zNy56aXAnXG5Db250ZW50IHR5cGUgJ2FwcGxpY2F0aW9uL3ppcCcgbGVuZ3RoIDEyMTg1MCBieXRlcyAoMTE4IEtCKVxuZG93bmxvYWRlZCAxMTggS0JcbiJ9 -->
+<!-- rnb-output-begin eyJkYXRhIjoiSW5zdGFsbGluZyBwYWNrYWdlIGludG8g46S847ixRTovVXNlcnMvU2hydXRpL0RvY3VtZW50cy9SL3dpbi1saWJyYXJ5LzMuM+OkvOO4slxuKGFzIOOkvOO4sWxpYuOkvOO4siBpcyB1bnNwZWNpZmllZClcbnRyeWluZyBVUkwgJ2h0dHBzOi8vY3Jhbi5yc3R1ZGlvLmNvbS9iaW4vd2luZG93cy9jb250cmliLzMuMy9ycGFydF80LjEtMTAuemlwJ1xuQ29udGVudCB0eXBlICdhcHBsaWNhdGlvbi96aXAnIGxlbmd0aCA5MjU0NDQgYnl0ZXMgKDkwMyBLQilcbmRvd25sb2FkZWQgOTAzIEtCXG4ifQ== -->
 <pre><code>Installing package into 㤼㸱E:/Users/Shruti/Documents/R/win-library/3.3㤼㸲
 (as 㤼㸱lib㤼㸲 is unspecified)
-trying URL 'https://cran.rstudio.com/bin/windows/contrib/3.3/tree_1.0-37.zip'
-Content type 'application/zip' length 121850 bytes (118 KB)
-downloaded 118 KB</code></pre>
+trying URL 'https://cran.rstudio.com/bin/windows/contrib/3.3/rpart_4.1-10.zip'
+Content type 'application/zip' length 925444 bytes (903 KB)
+downloaded 903 KB</code></pre>
 <!-- rnb-output-end -->
-<!-- rnb-output-begin eyJkYXRhIjoicGFja2FnZSDigJh0cmVl4oCZIHN1Y2Nlc3NmdWxseSB1bnBhY2tlZCBhbmQgTUQ1IHN1bXMgY2hlY2tlZFxuXG5UaGUgZG93bmxvYWRlZCBiaW5hcnkgcGFja2FnZXMgYXJlIGluXG5cdEU6XFxVc2Vyc1xcU2hydXRpXFxBcHBEYXRhXFxMb2NhbFxcVGVtcFxcUnRtcDRvaGkwd1xcZG93bmxvYWRlZF9wYWNrYWdlc1xuIn0= -->
-<pre><code>package ‘tree’ successfully unpacked and MD5 sums checked
+<!-- rnb-output-begin eyJkYXRhIjoicGFja2FnZSDigJhycGFydOKAmSBzdWNjZXNzZnVsbHkgdW5wYWNrZWQgYW5kIE1ENSBzdW1zIGNoZWNrZWRcblxuVGhlIGRvd25sb2FkZWQgYmluYXJ5IHBhY2thZ2VzIGFyZSBpblxuXHRFOlxcVXNlcnNcXFNocnV0aVxcQXBwRGF0YVxcTG9jYWxcXFRlbXBcXFJ0bXBRM3l1Z3ZcXGRvd25sb2FkZWRfcGFja2FnZXNcbiJ9 -->
+<pre><code>package ‘rpart’ successfully unpacked and MD5 sums checked
 
 The downloaded binary packages are in
-    E:\Users\Shruti\AppData\Local\Temp\Rtmp4ohi0w\downloaded_packages</code></pre>
+    E:\Users\Shruti\AppData\Local\Temp\RtmpQ3yugv\downloaded_packages</code></pre>
 <!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeSh0cmVlKVxuYGBgIn0= -->
-<pre class="r"><code>library(tree)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShycGFydClcbmBgYCJ9 -->
+<pre class="r"><code>library(rpart)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoicGFja2FnZSDjpLzjuLF0cmVl46S847iyIHdhcyBidWlsdCB1bmRlciBSIHZlcnNpb24gMy4zLjNcbiJ9 -->
-<pre><code>package 㤼㸱tree㤼㸲 was built under R version 3.3.3</code></pre>
+<!-- rnb-output-begin eyJkYXRhIjoicGFja2FnZSDjpLzjuLFycGFydOOkvOO4siB3YXMgYnVpbHQgdW5kZXIgUiB2ZXJzaW9uIDMuMy4zXG4ifQ== -->
+<pre><code>package 㤼㸱rpart㤼㸲 was built under R version 3.3.3</code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 </div>
 
-<div id="rmd-source-code">LS0tDQp0aXRsZTogIk1JUzQwOTcwIERhdGEgTWluaW5nIC0gQXNzaWdubWVudCAzIENsYXNzaWZpY2F0aW9uIg0Kb3V0cHV0Og0KICBwZGZfZG9jdW1lbnQ6IGRlZmF1bHQNCiAgaHRtbF9ub3RlYm9vazogZGVmYXVsdA0KLS0tDQpgYGB7cn0NCiNybSgpIGlzIHVzZWQgdG8gcmVtb3ZlIG90aGVyIG9iamVjdHMgZnJvbSB0aGUgZW52aXJvbm1lbnQNCnJtKGxpc3Q9bHMoKSkNCg0KI1RvIGNoZWNrIHRoZSB3b3JraW5nIGRpcmVjdG9yeQ0KZ2V0d2QoKQ0KI0Egc3BlY2lmaWMgd29ya2luZyBkcmVjdG9yeSBuZWVkcyB0byBiZSBzZXQgZm9yIHRoZSBsb2FkaW5nIG9mIGRhdGFzZXQNCnNldHdkKCJHOi9SX3Byb2dyYW1zX2dpdC9SX1Byb2dhbXMvQ2xhc3NpZmljYXRpb24vQ2xhc3NpZmljYXRpb24iKQ0KDQpgYGANCg0KIyMgKipRNC4gSW5zdGFsbAlSCXBhY2thZ2UJ4oCcQzUw4oCdLglJbXBvcnQJY3VzdG9tZXIJY2h1cm4JZGF0YXNldAkoY2h1cm4pCXVzaW5nCWRhdGEoKSBmdW5jdGlvbi4JCQ0KRXhhbWluZQl0aGUJY2h1cm5UcmFpbiBkYXRhc2V0LiBVc2luZwlSCXJ1bglhCWRlY2lzaW9uLXRyZWUJY2xhc3NpZmljYXRpb24JYWxnb3JpdGhtCW9mCXlvdXIgY2hvaWNlCWNvbnN0cnVjdGluZwlhCWZ1bGwJdW5wcnVuZWQJdHJlZQlhbmQJYQlwcnVuZWQJdHJlZS4JQ29tcGFyZQljbGFzc2lmaWNhdGlvbglyZXN1bHRzCW9mIHRoZQlwcnVuZWQJYW5kCXVucHJ1bmVkCXRyZWVzIGdlbmVyYXRlZC4qKgkNCmBgYHtyfQ0KaW5zdGFsbC5wYWNrYWdlcygnQzUwJykNCg0KbGlicmFyeShDNTApDQoNCiNUbyBleGFtaW5lIGRhdGFzZXRzIGluIHBhY2thZ2UgQzUwDQpkYXRhKCkNCmBgYA0KQWZ0ZXIgZXhhbWluaW5nIGRhdGEgZnVuY3Rpb24sIGl0IGhhcyBiZWVuIGZvdW5kIG91dCB0aGF0IHRoZXJlIGFyZSB0d28gZGF0YXNldHMgaW4gJ0N1c3RvbWVyIENodXJuIERhdGEnIChDNTAgcGFja2FnZSksIHdoaWNoIGFyZSBjaHVyblRlc3QgYW5kIGNodXJuVHJhaW4uIFRvIGltcG9ydCBkYXRhc2V0cyBpbiBDNTAgcGFja2FnZSwgdXNlIGNvbW1hbmQgImRhdGEoY2h1cm4pIi4NCmBgYHtyfQ0KZGF0YShjaHVybikNCg0KcHJpbnQoIi0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLVN1bW1hcnkgVGFibGUgOiBjaHVyblRyYWluLS0tLS0tLS0tLS0tLS0tLS0tLS0tIikNCiNUbyB1bmRlcnN0YW5kIGRhdGFzZXQgY2h1cm5UcmFpbg0Kc3VtbWFyeShjaHVyblRyYWluKQ0KYGBgDQpgYGB7cn0NCiNJbnN0YWxsaW5nIHBhY2thZ2UgJ3RyZWUnIGZvciBEZWNpc2lvbiBUcmVlDQoNCmluc3RhbGwucGFja2FnZXMoInRyZWUiKQ0KDQpsaWJyYXJ5KHRyZWUpDQoNCmBgYA0KDQo=</div>
+<div id="rmd-source-code">LS0tDQp0aXRsZTogIk1JUzQwOTcwIERhdGEgTWluaW5nIC0gQXNzaWdubWVudCAzIENsYXNzaWZpY2F0aW9uIg0Kb3V0cHV0Og0KICBwZGZfZG9jdW1lbnQ6IGRlZmF1bHQNCiAgaHRtbF9ub3RlYm9vazogZGVmYXVsdA0KLS0tDQpgYGB7cn0NCiNybSgpIGlzIHVzZWQgdG8gcmVtb3ZlIG90aGVyIG9iamVjdHMgZnJvbSB0aGUgZW52aXJvbm1lbnQNCnJtKGxpc3Q9bHMoKSkNCg0KI1RvIGNoZWNrIHRoZSB3b3JraW5nIGRpcmVjdG9yeQ0KZ2V0d2QoKQ0KI0Egc3BlY2lmaWMgd29ya2luZyBkcmVjdG9yeSBuZWVkcyB0byBiZSBzZXQgZm9yIHRoZSBsb2FkaW5nIG9mIGRhdGFzZXQNCnNldHdkKCJHOi9SX3Byb2dyYW1zX2dpdC9SX1Byb2dhbXMvQ2xhc3NpZmljYXRpb24vQ2xhc3NpZmljYXRpb24iKQ0KDQpgYGANCg0KIyMgKipRNC4gSW5zdGFsbAlSCXBhY2thZ2UJIkM1MCIuCUltcG9ydAljdXN0b21lcgljaHVybglkYXRhc2V0CShjaHVybikJdXNpbmcJZGF0YSgpIGZ1bmN0aW9uLiBFeGFtaW5lCXRoZQljaHVyblRyYWluIGRhdGFzZXQuIFVzaW5nCVIJcnVuCWEJZGVjaXNpb24tdHJlZQljbGFzc2lmaWNhdGlvbglhbGdvcml0aG0Jb2YJeW91ciBjaG9pY2UJY29uc3RydWN0aW5nCWEJZnVsbAl1bnBydW5lZAl0cmVlCWFuZAlhCXBydW5lZAl0cmVlLglDb21wYXJlCWNsYXNzaWZpY2F0aW9uCXJlc3VsdHMJb2YgdGhlCXBydW5lZAlhbmQJdW5wcnVuZWQJdHJlZXMgZ2VuZXJhdGVkLioqCQ0KYGBge3J9DQppbnN0YWxsLnBhY2thZ2VzKCdDNTAnKQ0KDQpsaWJyYXJ5KEM1MCkNCg0KI1RvIGV4YW1pbmUgZGF0YXNldHMgaW4gcGFja2FnZSBDNTANCmRhdGEoKQ0KYGBgDQpBZnRlciBleGFtaW5pbmcgZGF0YSBmdW5jdGlvbiwgaXQgaGFzIGJlZW4gZm91bmQgb3V0IHRoYXQgdGhlcmUgYXJlIHR3byBkYXRhc2V0cyBpbiAnQ3VzdG9tZXIgQ2h1cm4gRGF0YScgKEM1MCBwYWNrYWdlKSwgd2hpY2ggYXJlIGNodXJuVGVzdCBhbmQgY2h1cm5UcmFpbi4gVG8gaW1wb3J0IGRhdGFzZXRzIGluIEM1MCBwYWNrYWdlLCB1c2UgY29tbWFuZCAiZGF0YShjaHVybikiLg0KYGBge3J9DQpkYXRhKGNodXJuKQ0KDQpwcmludCgiLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tU3VtbWFyeSBUYWJsZSA6IGNodXJuVHJhaW4tLS0tLS0tLS0tLS0tLS0tLS0tLS0iKQ0KI1RvIHVuZGVyc3RhbmQgZGF0YXNldCBjaHVyblRyYWluDQpzdW1tYXJ5KGNodXJuVHJhaW4pDQpgYGANCmBgYHtyfQ0KI0luc3RhbGxpbmcgcGFja2FnZSAncnBhcnQnIGZvciBEZWNpc2lvbiBUcmVlDQoNCmluc3RhbGwucGFja2FnZXMoInJwYXJ0IikNCg0KbGlicmFyeShycGFydCkNCg0KYGBgDQoNCg==</div>
 
 
 
