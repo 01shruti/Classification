@@ -1,8 +1,8 @@
 ---
 title: "MIS40970 Data Mining - Assignment 3 Classification"
 output:
-  pdf_document: default
   html_notebook: default
+  pdf_document: default
 ---
 ```{r}
 #rm() is used to remove other objects from the environment
@@ -41,6 +41,32 @@ library(rpart)
 
 ```
 ```{r}
-fit <- rpart()
+#Grow a tree using Rpart to predict customer churn for all other independent variables
+
+fit <- rpart(churn ~ state + account_length + area_code + international_plan + voice_mail_plan + total_day_charge + total_eve_charge + total_night_charge + total_intl_charge + number_vmail_messages + number_customer_service_calls, method="class",data=churnTrain)
+
+#To display result
+printcp(fit)
+
+#To plot cross-validation result
+plotcp(fit)
+
+#To print detailed summary of splits
+summary(fit)
+
+#To plot the tree
+plot(fit,uniform = TRUE, main = "Classification of Churn (churnTrain)")
+text(fit, use.n = TRUE, all = TRUE, cex = 0.5)
 ```
+```{r}
+#Pruning the tree
+
+pfit <- prune(fit, cp=fit$cptable[which.min(fit$cptable[,"xerror"]),"CP"])
+
+#Plot the pruned tree
+plot(pfit, uniform = TRUE, main = "Pruned Tree Classification of Churn (churnTrain)")
+text(pfit, use.n=TRUE, all = TRUE, cex = 0.5)
+```
+Pruning the decision tree will help to avoid overfitting the data. It will minimize the cross validation error (uing xerror) and select complexity parameter that is associated with least error. Results shows that unpruned tree is larger because the algorithm is implemented as is. While in pruned tree, there is an additional step which analyse which nodes or branches to be removed that will not affect the performance of decision tree. 
+
 
