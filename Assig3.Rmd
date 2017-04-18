@@ -71,3 +71,4 @@ Pruning the decision tree will help to avoid overfitting the data. It will minim
 
 ## **Q5 Compare generalisation performance of the pruned and unpruned tree from Q4. Output relevant summaries and confusion matrices. Describe the results.**
 
+
