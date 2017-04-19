@@ -89,19 +89,43 @@ fit <- tree(traindata$churn ~ .,traindata)
 
 #To print detailed summary of splits
 summary(fit)
+cat("\n \n")
+
+#Prediction using predict function for both traindata and testdata
+traindata_C50 = predict(fit,traindata,type="class")
+testdata_C50 = predict(fit,testdata,type="class")
+
+#Printing prediction result using table
+print("Prediction of traindata")
+cat("_______________________\n")
+table(traindata_C50,traindata$churn)
+cat("\n")
+
+print("Prediction of testdata")
+cat("______________________\n")
+table(testdata_C50,testdata$churn)
 
 #To plot the tree
-plot(fit, main = "Classification of Churn (churnTrain)")
-text(fit, use.n = TRUE, all = TRUE, cex = 0.5)
+plot(fit)
+text(fit, all = TRUE, cex = 0.5)
 ```
 ```{r}
 #Pruning the tree
+pfit = cv.tree(fit,FUN = prune.misclass)
+print("Details of prune.misclass")
+print("_________________________")
+cat("\n")
+pfit
 
-pfit <- prune(fit, cp=fit$cptable[which.min(fit$cptable[,"xerror"]),"CP"])
-
+pruneData = prune.misclass(fit,best=6)
 #Plot the pruned tree
-plot(pfit, uniform = TRUE, main = "Pruned Tree Classification of Churn (churnTrain)")
-text(pfit, use.n=TRUE, all = TRUE, cex = 0.5)
+plot(pruneData)
+text(pruneData,all = TRUE, cex = 0.5)
+
+pruneData2 = prune.misclass(fit,best=2)
+#Plot the pruned tree
+plot(pruneData2)
+text(pruneData2,all = TRUE, cex = 0.7)
 ```
 Pruning the decision tree will help to avoid overfitting the data. It will minimize the cross validation error (uing xerror) and select complexity parameter that is associated with least error. Results shows that unpruned tree is larger because the algorithm is implemented as is. While in pruned tree, there is an additional step which analyse which nodes or branches to be removed that will not affect the performance of decision tree. 
 
