@@ -112,7 +112,7 @@ testdata <- churnTrain[dataPart ==2,]
 
 #Installing package 'tree' for Decision Tree
 
-install.packages("tree")
+#install.packages("tree")
 
 library(tree)
 
@@ -257,7 +257,7 @@ From the above results we can see that there are 23 misidentified train data for
 
 ```{r}
 #Installing Caret package
-install.packages("caret")
+#install.packages("caret")
 
 library(caret)
 ```
@@ -592,14 +592,13 @@ d <- dist(df,method = "euclidean")
 res_hc1 <- hclust(d, method = "ward.D2")
 
 #Cutting groups into 4 clusters
-grp1 <- cutree(res_hc1,k=4)
+grp1 <- cutree(res_hc1,k=2)
 
 #Plotting the cluster
 plot(res_hc1, cex = 0.6)
-rect.hclust(res_hc1, k = 4, border = 2:5)
+rect.hclust(res_hc1, k = 2, border = 2:5)
 
-res.hc1 <- eclust(df, "hclust", k = 3, graph = FALSE)
+res.hc1 <- eclust(df, "hclust", k = 2, graph = FALSE)
 fviz_silhouette(res.hc1)
 ```
-
-
+After applying clustering on the college dataset, obervation is that clustering is not appropriate to determine ifnormation from dataset because clusters are not clear and crisp that can provide resourceful instances. 
