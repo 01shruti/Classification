@@ -14,6 +14,8 @@ getwd()
 setwd("G:/R_programs_git/R_Progams/Classification/Classification")
 
 ```
+## **Q1 Compare and contrast classification and clustering.**
+
 ## **Q2 Describe what this piece of R code is doing and why it is an important starting point for running classification algorithm. 
 ##> set.seed(1234)
 ##> dataPartition <- sample(2,nrow(data),replace=TRUE,prob=c(0.7,0.3))
@@ -42,6 +44,14 @@ Second statement(**dataPartition<-sample(2,nrow(data),replace=TRUE,prob=c(0.7,0.
 All these commands will help in creating training dataset that can be changed continuously that help in formulation of classification algorithms. 
 
 ## **Q3 What is the role of the M parameter in the Weka implementation of C4.5 algorithm? Which part of the DTL induction process does this parameter affect?**
+
+While implementing C4.5 algorithm in Weka software, M parameter sets a minimum instances per leaf that effects the separation of data on the decision tree. Minimum of the instances have atleast two branches will be at each split.As a result, there will be effect on the total number of tree formulated.
+```{r}
+#Installing Weka package
+
+#install.packages("RWeka")
+```
+
 
 
 ## **Q4. Install	R	package	"C50".	Import	customer	churn	dataset	(churn)	using	data() function. Examine	the	churnTrain dataset. Using	R	run	a	decision-tree	classification	algorithm	of	your choice	constructing	a	full	unpruned	tree	and	a	pruned	tree.	Compare	classification	results	of the	pruned	and	unpruned	trees generated.**	
