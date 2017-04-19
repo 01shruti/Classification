@@ -376,6 +376,24 @@ cat("\n")
 print("Test Data")
 dim(testData)
 ```
+By using histograms and density curve, we can interpret the distribution of
+the demographic and competitive variables whether the distribution is normal distribution or not.
+
+```{r}
+qplot(accept_rate, Outstate, colour=isElite, data=trainData)
+par(mfrow=c(1,2))
+
+hist(trainData$accept_rate, main = "Accept Rate",xlab = "Accept Rate")
+hist(trainData$Enroll, main = "Enroll",xlab = "Enroll")
+hist(trainData$Grad.Rate, main = "Grad Rate",xlab = "Grad Rate")
+hist(trainData$Outstate, main="Outstate",xlab = "Outstate")
+```
+
+
+
+
+
+
 **Classification using Tree**
 ```{r}
 library(tree)
@@ -426,4 +444,53 @@ confusionMatrix(table(predict(p.tree,trainData,type = "class"),trainData$isElite
 confusionMatrix(table(predict(p.tree,testData,type = "class"),testData$isElite))
 ```
 From statistics of pruned decision tree, we can see that there are 11 misidentified elements in test data for Elite and 10 for Not Elite. 
+```{r}
+cv1=cv.tree(tree.trainData,FUN=prune.misclass)
+par(mfrow=c(1,2))
+plot(cv1$size,cv1$dev,type="b",xlab = "Size",ylab = "Dev",main = "Plot Dev vs Size")
+
+par(mfrow=c(1,2))
+plot(cv1$k,cv1$dev,type="b",xlab = "K",ylab = "Dev",main = "Plot K vs Size")
+```
+
+**Random Forest Classification**
+```{r}
+library(randomForest)
+
+random.tree <- randomForest(isElite~.,data=trainData, importance = TRUE,tree=2500)
+print(random.tree)
+
+varImpPlot(random.tree)
+```
+```{r}
+pdata <- predict(random.tree, testData)
+print("Summary of prediction data")
+summary(pdata)
+
+cat("\n")
+print("Summary of isElite")
+summary(testData$isElite)
+
+cat("\n\n")
+confusionMatrix(table(pdata,testData$isElite))
+```
+```{r}
+plot(random.tree)
+importance(random.tree)
+```
+```{r}
+library(party)
+
+set.seed(1234)
+r.tree <- cforest(as.factor(isElite) ~ .,data=trainData, controls=cforest_unbiased(ntree=200,mtry=3))
+
+prediction <- predict(r.tree,testData,OOB = TRUE,type="response")
+summary(prediction)
+```
+```{r}
+temp <- ctree(trainData$isElite~.,data=trainData)
+plot(temp,main = "Decision Tree",cex = 0.5)
+```
+
+
 
