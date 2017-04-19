@@ -359,5 +359,71 @@ library(s20x)
 pairs(df,col="green",pch=20)
 pairs20x(df)
 ```
+Before applying classification algorithm to any dataset, first we need to create reusable partitions.
 
+```{r}
+set.seed(8)
+
+set <- cdata[-2]
+partitiondata <- sample(2, nrow(set),replace=TRUE,prob=c(0.7,0.3))
+trainData <- set[partitiondata ==1,]
+testData <- set[partitiondata ==2,]
+
+print("Train Data")
+dim(trainData)
+
+cat("\n")
+print("Test Data")
+dim(testData)
+```
+**Classification using Tree**
+```{r}
+library(tree)
+
+tree.trainData = tree(trainData$isElite~.,trainData)
+print("Summary of tree using TREE")
+cat("\n")
+summary(tree.trainData)
+```
+```{r}
+plot(tree.trainData)
+text(tree.trainData, all = TRUE, cex = 0.45)
+```
+```{r}
+#Confusion Matrix of trained data
+confusionMatrix(table(predict(tree.trainData,trainData,type = "class"),trainData$isElite))
+```
+```{r}
+#Confusion Matrix of test data
+confusionMatrix(table(predict(tree.trainData,testData,type = "class"),testData$isElite))
+```
+```{r}
+plot(trainData$Enroll~trainData$Grad.Rate,pch=21,main="Plot between Grad Rate and Enroll",xlab = "Grad Rate",ylab = "Enroll", bg=c("green","red","yellow")[unclass(trainData$isElite)])
+
+plot(trainData$accept_rate~trainData$Outstate,pch=21,main="Plot between Accept Rate and Outstate",xlab = "Outstate",ylab = "Accept Rate", bg=c("green","red","yellow")[unclass(trainData$isElite)])
+
+
+```
+```{r}
+#Pruned Data
+
+p.tree = prune.misclass(tree.trainData,best=2)
+print("Summary of pruned decision tree with best 2")
+summary(p.tree)
+```
+```{r}
+plot(p.tree)
+text(p.tree, all=TRUE, cex = 0.8)
+```
+From unpruned and pruned decision tree, we can see that Misclassification error rate is 37% bigger than unpruned tree and residual mean deviance is almost 50% lesser than unpruned tree. So unpruned tree is a better fitment. 
+
+```{r}
+#Confusion Matrix of train data of pruned tree
+confusionMatrix(table(predict(p.tree,trainData,type = "class"),trainData$isElite))
+```
+```{r}
+#Confusion Matrix of test data of pruned tree
+confusionMatrix(table(predict(p.tree,testData,type = "class"),testData$isElite))
+```
+From statistics of pruned decision tree, we can see that there are 11 misidentified elements in test data for Elite and 10 for Not Elite. 
 
