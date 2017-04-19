@@ -217,3 +217,80 @@ table(Train,traindata$churn)
 table(Test,testdata$churn)
 ```
 From the above results we can see that there are 23 misidentified train data for YES and 73 for NO. If data will be more than an accurate model can be created.
+
+## **Q6 Install R package “caret”. Import German credit rating dataset (GermanCredit). Examine the data. Use the data to build a classification model to predict “Good” or “Bad” customer credit rating. Pay attention to the model’s generalisation and its’ ability to correctly predict both classes. Interpret the results.**
+
+```{r}
+#Installing Caret package
+install.packages("caret")
+
+library(caret)
+```
+
+```{r}
+#Importing dataset GermanCredit
+data("GermanCredit")
+print("Summary of German Credit")
+cat("\n")
+str(GermanCredit)
+#Creating Trained and test dataset
+
+set.seed(123)
+
+GermanCredit <- GermanCredit[,!names(GermanCredit) %in% c("Duration","Amount","account_length")]
+
+partition <- sample(2,nrow(GermanCredit),replace = TRUE,prob = c(0.7,0.3))
+trainGC <- GermanCredit[partition ==1,]
+testGC <- GermanCredit[partition ==2,]
+
+cat("\n \n \n")
+print("Summary of dataset")
+cat("\n")
+summary(GermanCredit)
+```
+```{r}
+print("Printing dimensions of Trained and Test dataset created")
+print("_________________________Train Dataset_________________")
+dim(trainGC)
+
+print("_________________________Test  Dataset_________________")
+dim(testGC)
+
+```
+```{r}
+library(tree)
+
+#Unprunned dataset of GermanCredit
+
+unp_fit = tree(trainGC$Class~.,trainGC)
+
+print("Summary of classification of German Credit")
+cat("\n")
+summary(unp_fit)
+```
+```{r}
+plot(unp_fit)
+text(unp_fit,all=TRUE,cex = 0.6)
+```
+```{r}
+#Confusion Matrix
+pGC = predict(unp_fit,trainGC,type = "class")
+p_table = table(pGC, trainGC$Class)
+print(p_table)
+```
+```{r}
+print("Confusion Matrix for trained German Credit dataset")
+cat("\n")
+confusionMatrix(p_table)
+```
+```{r}
+pGC1 = predict(unp_fit,testGC,type = "class")
+p1_table = table(pGC1, testGC$Class)
+print(p1_table)
+```
+```{r}
+print("Confusion Matrix for test German Credit dataset")
+cat("\n")
+confusionMatrix(p1_table)
+```
+
