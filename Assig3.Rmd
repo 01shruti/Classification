@@ -308,4 +308,7 @@ summary(prune_GC)
 plot(prune_GC)
 text(prune_GC,all=TRUE,cex = 0.6)
 ```
-As from the summary results of pruned and unpruned decision tree, we can see that Misclassification error rate is same for both the tree types. However, residual mean deviance is larger and unpruned tree is better fit and helps in understanding more than pruned tree
+As from the summary results of pruned and unpruned decision tree, we can see that Misclassification error rate is same for both the tree types. However, residual mean deviance is larger and unpruned tree is better fit and helps in understanding more than pruned tree.
+
+## **Q7 Load file college.csv provided on Blackboard. Explore the data. Prepare the data for analysis. Use three different classification algorithms to classify colleges into two classes based on the label ("Not Elite", "Elite") (at least one algorithm of the type decision tree). 1. Describe what you have learned about the dataset and classification results. 2. What classification algorithm(s) did you use, with what parameter settings and how these settings affected the algorithm(s) performance? 3. Exclude the class labels from the data and explore this dataset with clustering. Compare clustering results with results of classification.**
+
