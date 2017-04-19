@@ -525,3 +525,47 @@ rsq.rpart(rp.tree)
 ```
 From all three algorithms used for classfication on college dataset, we can determine that random forest classification has highest accuracy compared to other two. Because random forest improves predictive accuracy which generates large number of bootstrapped trees, classifying each option using every tree in newly created forest whihc decides a final predicted result by aggregating all the results.
 
+```{r}
+library(factoextra)
+library(ggplot2)
+
+df <- na.omit(df)
+df <- scale(df)
+head(round(df,2))
+
+set.seed(234)
+
+km <- kmeans(df,2,nstart=25)
+
+cat("____________________________________________________________________")
+cat("\n\n")
+print(km)
+
+```
+```{r}
+fviz_cluster(km,data=df)
+
+plot(df, col = km$cluster, pch = 19)
+points(km$cluter, col = 1:2, pch = 8, cex = 3)
+```
+```{r}
+#Hierarchial Clustering
+
+#Creation of dissimilarity matrix
+d <- dist(df,method = "euclidean")
+
+#applying hclust() function
+res_hc1 <- hclust(d, method = "ward.D2")
+
+#Cutting groups into 4 clusters
+grp1 <- cutree(res_hc1,k=4)
+
+#Plotting the cluster
+plot(res_hc1, cex = 0.6)
+rect.hclust(res_hc1, k = 4, border = 2:5)
+
+res.hc1 <- eclust(df, "hclust", k = 3, graph = FALSE)
+fviz_silhouette(res.hc1)
+```
+
+
