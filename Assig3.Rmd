@@ -523,4 +523,5 @@ text(prp.tree, use.n=TRUE, all=TRUE, cex=.8)
 par(mfrow=c(1,2))
 rsq.rpart(rp.tree)
 ```
+From all three algorithms used for classfication on college dataset, we can determine that random forest classification has highest accuracy compared to other two. Because random forest improves predictive accuracy which generates large number of bootstrapped trees, classifying each option using every tree in newly created forest whihc decides a final predicted result by aggregating all the results.
 
