@@ -41,7 +41,7 @@ Second statement(**dataPartition<-sample(2,nrow(data),replace=TRUE,prob=c(0.7,0.
 
 All these commands will help in creating training dataset that can be changed continuously that help in formulation of classification algorithms. 
 
-
+## **Q3 What is the role of the M parameter in the Weka implementation of C4.5 algorithm? Which part of the DTL induction process does this parameter affect?**
 
 
 ## **Q4. Install	R	package	"C50".	Import	customer	churn	dataset	(churn)	using	data() function. Examine	the	churnTrain dataset. Using	R	run	a	decision-tree	classification	algorithm	of	your choice	constructing	a	full	unpruned	tree	and	a	pruned	tree.	Compare	classification	results	of the	pruned	and	unpruned	trees generated.**	
@@ -56,35 +56,42 @@ data()
 After examining data function, it has been found out that there are two datasets in 'Customer Churn Data' (C50 package), which are churnTest and churnTrain. To import datasets in C50 package, use command "data(churn)".
 ```{r}
 data(churn)
+print("Details of attributes in churnTrain")
+print("___________________________________")
+str(churnTrain)
 
-print("---------------------------Summary Table : churnTrain---------------------")
+print("---------------------------Summary Table :churnTrain---------------------")
 #To understand dataset churnTrain
 summary(churnTrain)
+
+churnTrain <- churnTrain[,c(-1,-4)]
+print("Details of attributes in churnTrain after selecting few columns")
+print("_______________________________________________________________")
+str(churnTrain)
 ```
 ```{r}
-#Installing package 'rpart' for Decision Tree
+set.seed(1234)
+dataPart <- sample(2, nrow(churnTrain),replace = TRUE,prob = c(0.7,0.3))
+traindata <- churnTrain[dataPart ==1,]
+testdata <- churnTrain[dataPart ==2,]
 
-install.packages("rpart")
+#Installing package 'tree' for Decision Tree
 
-library(rpart)
+install.packages("tree")
+
+library(tree)
 
 ```
 ```{r}
-#Grow a tree using Rpart to predict customer churn for all other independent variables
+#Grow a tree using tree to predict customer churn for all other independent variables
 
-fit <- rpart(churn ~ state + account_length + area_code + international_plan + voice_mail_plan + total_day_charge + total_eve_charge + total_night_charge + total_intl_charge + number_vmail_messages + number_customer_service_calls, method="class",data=churnTrain)
-
-#To display result
-printcp(fit)
-
-#To plot cross-validation result
-plotcp(fit)
+fit <- tree(traindata$churn ~ .,traindata)
 
 #To print detailed summary of splits
 summary(fit)
 
 #To plot the tree
-plot(fit,uniform = TRUE, main = "Classification of Churn (churnTrain)")
+plot(fit, main = "Classification of Churn (churnTrain)")
 text(fit, use.n = TRUE, all = TRUE, cex = 0.5)
 ```
 ```{r}
@@ -99,5 +106,6 @@ text(pfit, use.n=TRUE, all = TRUE, cex = 0.5)
 Pruning the decision tree will help to avoid overfitting the data. It will minimize the cross validation error (uing xerror) and select complexity parameter that is associated with least error. Results shows that unpruned tree is larger because the algorithm is implemented as is. While in pruned tree, there is an additional step which analyse which nodes or branches to be removed that will not affect the performance of decision tree. 
 
 ## **Q5 Compare generalisation performance of the pruned and unpruned tree from Q4. Output relevant summaries and confusion matrices. Describe the results.**
+
 
 
