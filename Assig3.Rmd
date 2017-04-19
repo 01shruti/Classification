@@ -158,4 +158,62 @@ text(prune13,all = TRUE, cex = 0.5)
 
 summary(prune13)
 ```
+**Confusion Matrix** counts the number of times predicted variable has been mapped to other true variables. 
+```{r}
+library(caret)
 
+print("Confusion Matrix of Unpruned decision tree of training dataset")
+cat("\n")
+
+p1 = predict(fit,churnTrain,type="class")
+unp_table = table(p1,churnTrain$churn)
+cat("\n")
+
+confusionMatrix(unp_table)
+```
+
+```{r}
+print("Confusion Matrix of Unpruned decision tree of test dataset")
+cat("\n")
+
+p2 = predict(fit,churnTest,type="class")
+unp2_table = table(p2,churnTest$churn)
+cat("\n")
+
+confusionMatrix(unp2_table)
+
+```
+```{r}
+print("Confusion Matrix of pruned decision tree of training dataset")
+cat("\n")
+
+p3 = predict(pruneData,churnTrain,type="class")
+p_table = table(p3,churnTrain$churn)
+cat("\n")
+
+confusionMatrix(p_table)
+
+```
+```{r}
+print("Confusion Matrix of pruned decision tree of test dataset")
+cat("\n")
+
+p4 = predict(pruneData,churnTest,type="class")
+p2_table = table(p4,churnTest$churn)
+cat("\n")
+
+confusionMatrix(p2_table)
+
+```
+```{r}
+treeC50=tree(traindata$churn~.,traindata)
+Train=predict(treeC50,traindata ,type="class") 
+Test=predict(treeC50,testdata, type="class") 
+table(Train,traindata$churn)    
+
+```
+
+```{r}
+table(Test,testdata$churn)
+```
+From the above results we can see that there are 23 misidentified train data for YES and 73 for NO. If data will be more than an accurate model can be created.
