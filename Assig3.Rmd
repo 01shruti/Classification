@@ -33,8 +33,13 @@ dataPartition <- sample(2,nrow(college),replace=TRUE,prob=c(0.7,0.3))
 trainCollege <- college[dataPartition ==1,]
 testCollege <- college[dataPartition ==2,]
 ```
+For the first statement(**set.seed(1234)**), we use seed number as a starting point that is used to generate a sequence of pseudo random numbers. This function is important if there is need that results should be reproducible and debuggable easily. 
 
+Second statement(**dataPartition<-sample(2,nrow(data),replace=TRUE,prob=c(0.7,0.3))**) represents the properties of the partitions that need to be taken. Sample function takes a specified size from 2(an integer vector that can take one or more elements) so that function can generate random permutation of elements of vector(1:vector). If vector is 4, then the random permutation sequence will take numbers between 1 and 4 numbers. nrow(data) represents the size giving the numbers of items to choose and nrow is the last row of the college dataset. replace represents whether the sampling should be done with replacement or without replacement. Replace=TRUE is set to do the sampling with replacement. And prob will take probability weights for obtaining sampled elements. So it is expected that 1 will appear more than 2 times as weight is 0.7 than 0.3. If we write prob=c(0.3,0.5,0.2) then 1 is appeared to be less times than 2 but more than 3. 
 
+**trainCollege <- college[dataPartition ==1,] and testCollege <- college[dataPartition ==2,]** split the college dataset into 2 datasets i.e. Test data and Train data, where test data is used for testing. 
+
+All these commands will help in creating training dataset that can be changed continuously that help in formulation of classification algorithms. 
 
 
 
