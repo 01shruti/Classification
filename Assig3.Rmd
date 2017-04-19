@@ -1,5 +1,6 @@
 ---
 title: "MIS40970 Data Mining - Assignment 3 Classification"
+author: Shruti Goyal (16200726)
 output:
   pdf_document: default
   html_notebook: default
@@ -15,6 +16,31 @@ setwd("G:/R_programs_git/R_Progams/Classification/Classification")
 
 ```
 ## **Q1 Compare and contrast classification and clustering.**
+
+**Clustering** is a process of grouping objects together in a way that objects with similar features will be together and dissimilar objects will be together. It is used for data analysis. 
+
+**Classification** is a method of categorization where objects are recognised, differentiated on basis of training dataset. 
+
+1. **Supervision** : Classification - Supervised learning
+                     Clustering - Unsupervised learning
+
+2. **Training set** : Classification - Find simmilarities using training set
+                      Clustering - No training set is used
+                
+3. **Process** : Classification - Categorise data as per observations in training                                   set
+                 Clustering - Use statistical concepts and datasets are split with                               similar and dissimilar features
+
+4. **Labels** : Classification - Use of labels
+                Clustering - no labels
+            
+5. **Data Mining Methods** : Classification - It is a method of predicting                                                      instances from labeled instances
+                             Clustering - This methods identifies natural grouping                                           of instances from unlabeled data
+                             
+**Examples** : Classification - Random Forest, rpart, Ctree, Tree
+               Clustering - kmeans, PAM, hierarchial
+               
+Both the methods are similar to each other as both divide the data into subsets and yet two different learning methods to get relevant information from raw data.
+
 
 ## **Q2 Describe what this piece of R code is doing and why it is an important starting point for running classification algorithm. 
 ##> set.seed(1234)
@@ -51,8 +77,6 @@ While implementing C4.5 algorithm in Weka software, M parameter sets a minimum i
 
 #install.packages("RWeka")
 ```
-
-
 
 ## **Q4. Install	R	package	"C50".	Import	customer	churn	dataset	(churn)	using	data() function. Examine	the	churnTrain dataset. Using	R	run	a	decision-tree	classification	algorithm	of	your choice	constructing	a	full	unpruned	tree	and	a	pruned	tree.	Compare	classification	results	of the	pruned	and	unpruned	trees generated.**	
 ```{r}
