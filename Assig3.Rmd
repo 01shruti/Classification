@@ -491,6 +491,36 @@ summary(prediction)
 temp <- ctree(trainData$isElite~.,data=trainData)
 plot(temp,main = "Decision Tree",cex = 0.5)
 ```
+**Classification using Regression**
+```{r}
+library(rpart)
 
+set.seed(145)
+rp.tree <- rpart(isElite~.,data=trainData)
 
+print("Summary of rpart decision tree")
+cat("\n\n")
+summary(rp.tree)
+
+plotcp(rp.tree)
+cat("\n")
+printcp(rp.tree)
+
+```
+```{r}
+plot(rp.tree, uniform=TRUE, main="Classification Tree for isElite")
+text(rp.tree, use.n=TRUE, all=TRUE, cex=.8)
+```
+```{r}
+#Pruning the tree
+prp.tree <- prune(rp.tree, cp=rp.tree$cptable[which.min(rp.tree$cptable[,"xerror"]),"CP"])
+
+plot(prp.tree, uniform=TRUE, main="Pruned Classification Tree for isElite")
+text(prp.tree, use.n=TRUE, all=TRUE, cex=.8)
+
+```
+```{r}
+par(mfrow=c(1,2))
+rsq.rpart(rp.tree)
+```
 
