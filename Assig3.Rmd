@@ -293,4 +293,19 @@ print("Confusion Matrix for test German Credit dataset")
 cat("\n")
 confusionMatrix(p1_table)
 ```
+```{r}
+plot(trainGC$CreditHistory.PaidDuly~trainGC$EmploymentDuration.Unemployed,pch=21,main="Plot between Credit history and eomplyment duration",xlab="Unemployed", ylab ="Paid Duly",bg=c("green","yellow") [unclass(trainGC$Class)])
 
+#Pruned tree
+cv_German=cv.tree(unp_fit,FUN=prune.misclass)
+print(cv_German)
+ plot(cv_German$size,cv_German$dev,type="b",xlab = "Size",ylab = "Dev",main = "Plot between Size and Dev")
+```
+```{r}
+prune_GC = prune.misclass(unp_fit,best=2)
+summary(prune_GC)
+
+plot(prune_GC)
+text(prune_GC,all=TRUE,cex = 0.6)
+```
+As from the summary results of pruned and unpruned decision tree, we can see that Misclassification error rate is same for both the tree types. However, residual mean deviance is larger and unpruned tree is better fit and helps in understanding more than pruned tree
